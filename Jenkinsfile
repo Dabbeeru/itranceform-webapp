@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
-pipeline {
+pipeline { 
+    environment {
+    registry = "hub.docker/dilleswari"
+    registryCredential = 'dockerhub'
+  } 
     agent {
         label 'master'
     }
@@ -27,13 +31,14 @@ pipeline {
         
       
     
-        stage('Build Docker Image') {
-            steps {
-                deleteDir()
-                checkout scm
-                sh 'build'
-            }
+         stage('Building image') {
+      steps{
+        script {
+          docker.build registry + ":$BUILD_NUMBER"
         }
+      }
+    }
+ 
     
 
     }
