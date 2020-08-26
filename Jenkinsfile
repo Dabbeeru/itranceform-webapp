@@ -36,7 +36,7 @@ steps
 echo "building the docker image "
    
  
-sh 'sudo docker build -t dilleswari/tomcat:2.0 .'
+sh 'docker build -t dilleswari/tomcat8 .'
 
  
 }
@@ -70,7 +70,8 @@ sh 'sudo docker login -u ${username} -p ${passwd}'
 }
 
  
-sh 'sudo docker push dilleswari/tomcat:2.0'
+//sh 'sudo docker push dilleswari/tomcat:2.0'
+    sh 'docker push dilleswari/tomcat8'
 
  
 }
