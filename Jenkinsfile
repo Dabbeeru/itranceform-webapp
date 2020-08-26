@@ -24,6 +24,17 @@ pipeline {
                 sh "mvn tomcat7:redeploy"
             }
         }
+        
+      
+    stages {
+        stage('Build Docker Image') {
+            steps {
+                deleteDir()
+                checkout scm
+                sh 'make build'
+            }
+        }
+    }
 
     }
 }
