@@ -26,7 +26,7 @@ pipeline {
         }
         
       
-    stages {
+    
         stage('Build Docker Image') {
             steps {
                 deleteDir()
@@ -34,7 +34,7 @@ pipeline {
                 sh 'make build'
             }
         }
-    }
+    
 
     }
 }
