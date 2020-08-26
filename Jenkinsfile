@@ -34,9 +34,7 @@ steps
 
  
 echo "building the docker image "
-    sh 'sudo groupadd docker'
-    sh 'sudo usermod -aG docker $USER'
-    sh  'newgrp docker'
+   
  
 sh 'sudo docker build -t dilleswari/tomcat:2.0 .'
 
