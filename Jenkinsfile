@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
-pipeline {
+pipeline { 
+   environment {
+    registry = "docker_hub_account/repository_name"
+    registryCredential = 'dockerhub'
+  } 
     agent {
         label 'master'
     }
@@ -19,12 +23,15 @@ pipeline {
             }
         }
 
-      //  stage('Deploy the code to tomcat') {
-        //    steps {
-          //      sh "mvn tomcat7:redeploy"
-          //  }
-       // }
-        stage ('building docker image'){
+        stage('Deploy the code to tomcat') {
+            steps {
+                sh "mvn tomcat7:redeploy"
+            }
+        }
+        
+      
+    
+    stage ('building docker image'){
 
  
 steps
@@ -34,9 +41,9 @@ steps
 
  
 echo "building the docker image "
-   
+
  
-sh 'docker build -t dilleswari/tomcat8 .'
+sh 'docker build -t dilleswari/tomcat:2.0 .'
 
  
 }
@@ -64,20 +71,21 @@ withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 
 {
 
  
-sh 'sudo docker login -u ${username} -p ${passwd}'
+sh 'docker login -u ${username} -p ${passwd}'
 
  
 }
 
  
-//sh 'sudo docker push dilleswari/tomcat:2.0'
-    sh 'docker push dilleswari/tomcat8'
+sh 'docker push dilleswari/tomcat:2.0'
 
  
 }
 
  
 }
+ 
+    
 
     }
 }
