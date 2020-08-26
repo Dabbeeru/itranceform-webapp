@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 pipeline { 
     environment {
-    registry = "hub.docker/dilleswari"
+    registry = "dilleswari/dilleswari"
     registryCredential = 'dockerhub'
   } 
     agent {
