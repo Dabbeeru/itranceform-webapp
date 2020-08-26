@@ -19,11 +19,11 @@ pipeline {
             }
         }
 
-        stage('Deploy the code to tomcat') {
-            steps {
-                sh "mvn tomcat7:redeploy"
-            }
-        }
+      //  stage('Deploy the code to tomcat') {
+        //    steps {
+          //      sh "mvn tomcat7:redeploy"
+          //  }
+       // }
         stage ('building docker image'){
 
  
