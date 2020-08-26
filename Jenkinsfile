@@ -43,7 +43,7 @@ steps
 echo "building the docker image "
 
  
-sh 'docker build -t dilleswari/tomcat:2.0 .'
+sh 'sudo docker build -t dilleswari/tomcat:2.0 .'
 
  
 }
@@ -71,13 +71,13 @@ withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 
 {
 
  
-sh 'docker login -u ${username} -p ${passwd}'
+sh 'sudodocker login -u ${username} -p ${passwd}'
 
  
 }
 
  
-sh 'docker push dilleswari/tomcat:2.0'
+sh 'sudo docker push dilleswari/tomcat:2.0'
 
  
 }
