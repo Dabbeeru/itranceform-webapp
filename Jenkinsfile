@@ -24,6 +24,59 @@ pipeline {
                 sh "mvn tomcat7:redeploy"
             }
         }
+        stage ('building docker image'){
+
+ 
+steps
+
+ 
+{
+
+ 
+echo "building the docker image "
+
+ 
+sh 'docker build -t dilleswari/tomcat:2.0 .'
+
+ 
+}
+
+ 
+}
+
+ 
+  
+stage('Push the docker image to hub'){
+
+ 
+steps
+
+ 
+{
+
+ 
+echo "login into docker hub "
+
+ 
+withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'passwd', usernameVariable: 'username')])
+
+ 
+{
+
+ 
+sh 'docker login -u ${username} -p ${passwd}'
+
+ 
+}
+
+ 
+sh 'docker push dilleswari/tomcat:2.0'
+
+ 
+}
+
+ 
+}
 
     }
 }
