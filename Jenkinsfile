@@ -85,8 +85,8 @@ sh 'sudo docker push dilleswari/tomcat:2.0'
 steps('Nodeport'){
 withKubeConfig(credentialsId: 'kubernetes') {
 
-sh 'sudo su -c "kubectl apply -f Deployment.yaml" ubuntu'
-   sh 'sudo su -c "kubectl apply -f Service.yaml" ubuntu'
+sh 'sudo su -c "kubectl apply -f Deployment.yml" ubuntu'
+   sh 'sudo su -c "kubectl apply -f Service.yml" ubuntu'
 
  
 }
