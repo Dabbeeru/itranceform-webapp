@@ -1,6 +1,6 @@
 FROM tomcat:9
 
-COPY ./webapp/target/*.war /opt/tomcat/webapps/
+COPY ./target/*.war /opt/tomcat/webapps/
 
 EXPOSE 8080
 
