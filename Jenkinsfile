@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 pipeline { 
-   environment {
-    registry = "docker_hub_account/repository_name"
-    registryCredential = 'dockerhub'
-  } 
+   
     agent {
         label 'master'
     }
@@ -91,7 +88,9 @@ withKubeConfig(credentialsId: 'kubernetes') {
 sh 'kubectl  apply -f deployment.yml '
 
  
-    
+}
+}
+       }
 
     }
 }
