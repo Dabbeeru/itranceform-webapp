@@ -1,10 +1,7 @@
-FROM tomcat:8.0-alpine
+FROM tomcat:9
 
-LABEL maintainer="deepak@softwareyoga.com"
+COPY ./webapp/target/*.war /opt/tomcat/webapps/
 
-ADD sample.war /opt/tomcat/webapps
+EXPOSE 8081
 
-
-EXPOSE 9090
-
-CMD ["catalina.sh", "run"]
+CMD ["catalina.sh","run"]
