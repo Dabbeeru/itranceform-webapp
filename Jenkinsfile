@@ -40,7 +40,7 @@ steps
 echo "building the docker image "
 
  
-sh 'sudo docker build -t dilleswari/tomcat:2.0 .'
+sh 'mvn clean package;sudo docker build -t dilleswari/tomcat:2.0 .'
 
  
 }
