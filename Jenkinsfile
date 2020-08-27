@@ -87,7 +87,8 @@ withKubeConfig(credentialsId: 'kubernetes') {
 
 sh 'sudo su -c "kubectl apply -f Deployment.yml" ubuntu'
    sh 'sudo su -c "kubectl apply -f Service.yml" ubuntu'
-
+sh 'sudo su -c "kubectl get services" ubuntu'
+   sh 'sudo su -c "kubectl get pods" ubuntu'
  
 }
 }
