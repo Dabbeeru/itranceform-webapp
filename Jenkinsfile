@@ -68,7 +68,7 @@ withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 
 {
 
  
-sh 'sudodocker login -u ${username} -p ${passwd}'
+sh 'sudo docker login -u ${username} -p ${passwd}'
 
  
 }
