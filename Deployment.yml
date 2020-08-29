@@ -17,5 +17,5 @@ spec:
       - name: hello-world
         image: dilleswari/tomcat:2.0
         ports:
-        - containerPort: 8080
+        - containerPort: 8081
           protocol: TCP
