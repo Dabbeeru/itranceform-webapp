@@ -1,7 +1,11 @@
-FROM centos
+FROM tomcat:9
 
-MAINTAINER dabbiru.devops@gmail.com
+COPY ./target/*.war /usr/local/tomcat/webapps/
+
+RUN mkdir /usr/local/tomcat/webapps/ROOT/
+
+RUN unzip /usr/local/tomcat/webapps/WebApp.war -d /usr/local/tomcat/webapps/ROOT/
 
 EXPOSE 8080
 
-CMD ["/opt/tomcat/apache-tomcat-9.0.37/bin/catalina.sh", "run"]
+CMD ["catalina.sh","run"]
